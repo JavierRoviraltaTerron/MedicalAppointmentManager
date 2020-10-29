@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>VACATIONAL AGENCY</title>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="app/tools/constants.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/services/holidayHomeOwner.service.js"></script>
+    <script src="app/components/holidayHomeOwners/holidayHomeOwners.component.js"></script>
+    <script src="app/components/holidayHomeOwnersList/holidayHomeOwnersList.component.js"></script>
+    <link href="assets/style/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-app="app">
+    <div ng-controller="MainCtrl as ctrl">
+        <h1>VACATIONAL AGENCY</h1>
+        <holiday-home-owners></holiday-home-owners>
+    </div>
+</body>
+</html>

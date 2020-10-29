@@ -1,0 +1,23 @@
+﻿body {
+    margin: auto;
+    min-width: 760px;
+    width: 70%;
+}
+
+.content {
+    
+}
+
+.validation-message {
+    color: red;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+    ul li {
+        margin: 5px;
+        padding: 5px;
+    }

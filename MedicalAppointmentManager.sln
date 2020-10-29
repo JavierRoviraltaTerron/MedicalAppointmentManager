@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{ED29CD1E-2880-4C62-86B9-5E63EF19613C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{1A8628EB-3C2A-4B90-A71F-58A373193883}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{AF8EA438-1044-42F6-87CB-D7960998B080}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED29CD1E-2880-4C62-86B9-5E63EF19613C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED29CD1E-2880-4C62-86B9-5E63EF19613C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED29CD1E-2880-4C62-86B9-5E63EF19613C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED29CD1E-2880-4C62-86B9-5E63EF19613C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A8628EB-3C2A-4B90-A71F-58A373193883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8628EB-3C2A-4B90-A71F-58A373193883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8628EB-3C2A-4B90-A71F-58A373193883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8628EB-3C2A-4B90-A71F-58A373193883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF8EA438-1044-42F6-87CB-D7960998B080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF8EA438-1044-42F6-87CB-D7960998B080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF8EA438-1044-42F6-87CB-D7960998B080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF8EA438-1044-42F6-87CB-D7960998B080}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D81EAE9E-DD1B-4B81-AFFF-66AC36607169}
+	EndGlobalSection
+EndGlobal
