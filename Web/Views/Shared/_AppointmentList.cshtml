@@ -18,8 +18,8 @@
         <div class="row">
             <div class="col-sm-2"><strong>Employee</strong></div>
             <div class="col-sm-2"><strong>Patient</strong></div>
-            <div class="col-sm-2"><strong>Date Time</strong></div>
-            <div class="col-sm-2"><strong>Local Date Time</strong></div>
+            <div class="col-sm-2"><strong>Date & Time</strong></div>
+            <div class="col-sm-2"><strong>Date & Time (Local)</strong></div>
             <div class="col-sm-2"><strong>Place</strong></div>
             <div class="col-sm-1"></div>
             <div class="col-sm-1"></div>
@@ -33,7 +33,7 @@
                 <div class="col-sm-2">@item.Employee.FirstName @item.Employee.LastName</div>
                 <div class="col-sm-2">@item.Patient.FirstName @item.Patient.LastName</div>
                 <div class="col-sm-2">@item.DateTime</div>
-                <div class="col-sm-2">@item.DateTime</div>
+                <div class="col-sm-2">@item.DateTime.ToLocalTime()</div>
                 <div class="col-sm-2">@item.Place</div>
                 <div class="col-sm-1">
                     <button id="btnEditAppointment" class="btn btn-secondary w-100" onclick="LoadAppointmentDetails(@item.Id, 'appointmentContainer')">Edit</button>

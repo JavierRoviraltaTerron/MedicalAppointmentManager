@@ -51,6 +51,10 @@ namespace Web.Controllers
                     }
                 }
             }
+            else
+            {
+                appointment.DateTime = DateTime.UtcNow;
+            }
 
             return PartialView("_AppointmentDetails", appointment);
         }
