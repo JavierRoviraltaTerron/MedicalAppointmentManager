@@ -10,11 +10,18 @@ namespace MedicalAppointmentManager.BusinessLogic.Services
 {
     public class AppointmentRepository : IAppointmentRepository
     {
-        public IEnumerable<Appointment> Get()
+        public IEnumerable<Appointment> Get(bool includeCancelled = true)
         {
             using (var dbContext = new MedicalAppointmentManagerContext())
             {
-                return dbContext.Appointment.Include(i => i.Employee).Include(i => i.Patient).ToList();
+                if (includeCancelled)
+                {
+                    return dbContext.Appointment.Include(i => i.Employee).Include(i => i.Patient).ToList();
+                }
+                else
+                {
+                    return dbContext.Appointment.Include(i => i.Employee).Include(i => i.Patient).Where(x => x.Cancelled == false).ToList();
+                }
             }
         }
 

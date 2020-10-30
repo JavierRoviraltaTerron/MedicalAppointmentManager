@@ -25,7 +25,7 @@ namespace MedicalAppointmentManager.WebAPI.Controllers
         [HttpGet]
         public IEnumerable<AppointmentDTO> Get()
         {
-            var lstAppointments = _appointmentService.Get();
+            var lstAppointments = _appointmentService.Get(false);
             return lstAppointments;
         }
 

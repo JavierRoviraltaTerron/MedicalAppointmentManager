@@ -25,9 +25,9 @@ namespace MedicalAppointmentManager.BusinessLogic.Services
             _patientRepository = patientRepository;
         }
 
-        public IEnumerable<AppointmentDTO> Get()
+        public IEnumerable<AppointmentDTO> Get(bool includeCancelled = true)
         {
-            var repository = _appointmentRepository.Get();
+            var repository = _appointmentRepository.Get(includeCancelled);
             return _mapper.Map<IEnumerable<Appointment>,List<AppointmentDTO>>(repository);
         }
 

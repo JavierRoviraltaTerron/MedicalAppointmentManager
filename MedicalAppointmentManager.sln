@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{AF8EA438-1044-42F6-87CB-D7960998B080}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{BB55981A-8950-45FB-B154-A0C71C1219F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AF8EA438-1044-42F6-87CB-D7960998B080}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF8EA438-1044-42F6-87CB-D7960998B080}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF8EA438-1044-42F6-87CB-D7960998B080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB55981A-8950-45FB-B154-A0C71C1219F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB55981A-8950-45FB-B154-A0C71C1219F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB55981A-8950-45FB-B154-A0C71C1219F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB55981A-8950-45FB-B154-A0C71C1219F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
