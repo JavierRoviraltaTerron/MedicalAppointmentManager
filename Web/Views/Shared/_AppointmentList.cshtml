@@ -1,40 +1,48 @@
 ﻿@using MedicalAppointmentManager.BusinessLogic.Models
 @model List<AppointmentDTO>
 
+<div class="text-center">
+    <h2>Appointments</h2>
+</div>
+
 <div class="row">
-    <div class="col-sm-12 row">
-        <div class="col-sm-3"><strong>Employee</strong></div>
-        <div class="col-sm-3"><strong>Patient</strong></div>
-        <div class="col-sm-2"><strong>Date Time</strong></div>
-        <div class="col-sm-2"><strong>Local Date Time</strong></div>
-        <div class="col-sm-2"><strong>Place</strong></div>
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-11"></div>
+            <div class="col-sm-1">
+                <button id="btnAddAppointment" onclick="LoadAppointmentDetails(0, 'appointmentContainer')" class="btn btn-primary w-100">Add</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-2"><strong>Employee</strong></div>
+            <div class="col-sm-2"><strong>Patient</strong></div>
+            <div class="col-sm-2"><strong>Date Time</strong></div>
+            <div class="col-sm-2"><strong>Local Date Time</strong></div>
+            <div class="col-sm-2"><strong>Place</strong></div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1"></div>
+        </div>
     </div>
 
     @foreach (var item in Model)
     {
-        <div class="col-sm-12 row">
-            <div class="col-sm-2">@item.Employee.FirstName @item.Employee.LastName</div>
-            <div class="col-sm-2">@item.Patient.FirstName @item.Patient.LastName</div>
-            <div class="col-sm-2">@item.DateTime</div>
-            <div class="col-sm-2">@item.DateTime</div>
-            <div class="col-sm-2">@item.Place</div>
-            <div class="col-sm-1">
-                Edit
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-2">@item.Employee.FirstName @item.Employee.LastName</div>
+                <div class="col-sm-2">@item.Patient.FirstName @item.Patient.LastName</div>
+                <div class="col-sm-2">@item.DateTime</div>
+                <div class="col-sm-2">@item.DateTime</div>
+                <div class="col-sm-2">@item.Place</div>
+                <div class="col-sm-1">
+                    <button id="btnEditAppointment" class="btn btn-secondary w-100" onclick="LoadAppointmentDetails(@item.Id, 'appointmentContainer')">Edit</button>
+                </div>
+                <div class="col-sm-1">
+                    <button id="btnRemoveAppointment" class="btn btn-danger w-100" onclick="RemoveAppointment(@item.Id, 'appointmentContainer')">Del</button>
+                </div>
             </div>
-            @*<div class="col-sm-1">
-                    @Html.ActionLink("Remove", "Remove", "Home", new { id = item.Id })
-                </div>*@
-            <div class="col-sm-1">
-                <button id="btnRemoveAppointment" class="btn btn-danger" value="@item.Id">Remove</button>
-            </div>
+            <hr />
         </div>
     }
 </div>
-
-<script type="text/javascript">
-    $('#btnRemoveAppointment').on('click', function () {
-        var id = $('#btnRemoveAppointment').val();
-        var containerId = "appointmentListContainer";
-        LoadAppointmentList(id, containerId);
-    })
-</script>

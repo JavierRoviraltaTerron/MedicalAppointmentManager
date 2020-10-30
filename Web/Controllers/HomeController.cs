@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using MedicalAppointmentManager.BusinessLogic.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -35,9 +36,46 @@ namespace Web.Controllers
             return View(lstAppointment);
         }
 
+        public async Task<IActionResult> Details(int id)
+        {
+            AppointmentDTO appointment = new AppointmentDTO();
 
-        // TODO: Update
+            if (id > 0)
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    using (var response = await httpClient.GetAsync("https://localhost:44375/api/appointment/" + id))
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
+                        appointment = JsonConvert.DeserializeObject<AppointmentDTO>(apiResponse);
+                    }
+                }
+            }
 
+            return PartialView("_AppointmentDetails", appointment);
+        }
+
+        public async Task<IActionResult> Update([FromForm] AppointmentDTO appointment)
+        {
+            List<AppointmentDTO> lstAppointment = new List<AppointmentDTO>();
+            using (var httpClient = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(appointment);
+                var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+
+                using (var response = await httpClient.PostAsync("https://localhost:44375/api/appointment/update", stringContent))
+                {
+                }
+
+                using (var response = await httpClient.GetAsync("https://localhost:44375/api/appointment"))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    lstAppointment = JsonConvert.DeserializeObject<List<AppointmentDTO>>(apiResponse);
+                }
+            }
+            //return PartialView("_AppointmentList", lstAppointment);
+            return View("Index", lstAppointment);
+        }
 
         public async Task<IActionResult> Remove(int id)
         {
@@ -46,7 +84,6 @@ namespace Web.Controllers
             {
                 using (var response = await httpClient.DeleteAsync("https://localhost:44375/api/appointment/" + id))
                 {
-
                 }
 
                 using (var response = await httpClient.GetAsync("https://localhost:44375/api/appointment"))

@@ -52,6 +52,7 @@ namespace MedicalAppointmentManager.BusinessLogic.Services
                 if (employee != null)
                 {
                     // Campos protegidos
+                    appointment.EmployeeId = employee.Id;
                     appointment.Employee.Id = employee.Id;
                     appointment.Employee.Nif = employee.Nif;
 
@@ -67,6 +68,7 @@ namespace MedicalAppointmentManager.BusinessLogic.Services
                 if (patient != null)
                 {
                     // Campos protegidos
+                    appointment.PatientId = patient.Id;
                     appointment.Patient.Id = patient.Id;
                     appointment.Patient.Nif = patient.Nif;
 

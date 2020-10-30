@@ -1,0 +1,222 @@
+﻿@using MedicalAppointmentManager.BusinessLogic.Models
+@model AppointmentDTO
+@{
+    var readOnly = (Model.Id > 0) ? true : false;
+    var mode = (Model.Id > 0) ? "Edit" : "Add";
+ }
+
+
+<div class="text-center">
+    <h2>@mode Appointment</h2>
+</div>
+
+@using (Html.BeginForm("Update", "Home", FormMethod.Post, new { @id = "formUpdateAppointment", @name = "formUpdateAppointment", @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Employee</h3>
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Employee.FirstName, "First Name", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.Employee.FirstName, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Employee.LastName, "Last Name", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.Employee.LastName, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Employee.Nif, "Nif", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @if (readOnly)
+                {
+                    @Html.TextBoxFor(m => m.Employee.Nif, string.Empty, new { @class = "form-control", @readonly = "readonly" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(m => m.Employee.Nif, string.Empty, new { @class = "form-control"})
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Employee.CollegiateNumber, "Collegiate Number", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.Employee.CollegiateNumber, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Employee.Specialities, "Specialities", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(m => m.Employee.Specialities, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Employee.ConsultationType, "Consultation Type", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(m => m.Employee.ConsultationType, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Employee.Address, "Address", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(m => m.Employee.Address, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div>
+        @Html.HiddenFor(m => m.Employee.Id)
+    </div>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Patient</h3>
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Patient.FirstName, "First Name", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.Patient.FirstName, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Patient.LastName, "Last Name", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.Patient.LastName, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Patient.Nif, "Nif", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @if (readOnly)
+                {
+                    @Html.TextBoxFor(m => m.Patient.Nif, string.Empty, new { @class = "form-control", @readonly = "readonly" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(m => m.Patient.Nif, string.Empty, new { @class = "form-control" })
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Patient.Company, "Company", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.Patient.Company, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Patient.Email, "Email", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.Patient.Email, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Patient.Phone, "Phone", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.Patient.Phone, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div>
+        @Html.HiddenFor(m => m.Patient.Id)
+    </div>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Appointment</h3>
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.DateTime, "Date Time", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.DateTime, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Place, "Place", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @if (readOnly)
+                {
+                    @Html.TextBoxFor(m => m.Place, string.Empty, new { @class = "form-control", @readonly = "readonly" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(m => m.Place, string.Empty, new { @class = "form-control" })
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Requirements, "Requirements", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @if (readOnly)
+                {
+                    @Html.TextAreaFor(m => m.Requirements, new { @class = "form-control", @readonly = "readonly" })
+                }
+                else
+                {
+                    @Html.TextAreaFor(m => m.Requirements, new { @class = "form-control" })
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 form-group">
+        <div class="row">
+            @Html.LabelFor(m => m.Observations, "Observations", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @if (readOnly)
+                {
+                    @Html.TextAreaFor(m => m.Observations, new { @class = "form-control", @readonly = "readonly" })
+                }
+                else
+                {
+                    @Html.TextAreaFor(m => m.Observations, new { @class = "form-control" })
+                }
+            </div>
+        </div>
+    </div>
+    <div>
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.EmployeeId)
+        @Html.HiddenFor(m => m.PatientId)
+        @Html.HiddenFor(m => m.Cancelled)
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-11"></div>
+    <div class="col-sm-1">
+        <button type="submit" id="btnUpdateAppointment" class="btn btn-primary w-100">@mode</button>
+    </div>
+</div>
+}
